@@ -1,0 +1,264 @@
+Project Title: Placement & Interview Management System (PIMS)
+
+Objective
+1. Build a centralized web application to manage:
+2. College placement drives
+3. Walk-in/off-campus interviews
+4. Candidate tracking across interview rounds
+5. Role-based access (Admin, Candidate, Interviewer)
+
+Tech Stack Requirements
+
+1.Frontend:
+-> React (with Vite)
+-> Tailwind CSS
+-> Axios for API calls
+-> React Router for navigation
+-> Form handling with validation
+
+2. Backend:
+-> Node.js + (Express.js)
+-> MySQL database
+
+3. Database Credentials:
+-> Username: root
+-> Password: ProminentPixel123@
+
+System Architecture:
+Build a full-stack application with:
+
+1. RESTful API backend
+2. Modular folder structure
+3. Clean separation of concerns:
+-> Controllers
+-> Services
+-> Routes
+-> Models
+4. Authentication system (JWT-based)
+
+
+User Roles:
+
+1. Admin
+-> Create and manage placements
+-> Schedule interview rounds
+-> Assign interviewers
+-> View all candidates
+-> Track progress
+
+2. Candidate
+-> Register & login
+-> Apply for jobs
+-> Upload resume
+-> Track interview status
+
+3. Interviewer
+-> Login for assigned placement session
+-> View assigned candidates
+-> Add interview feedback
+-> Mark selection status
+
+Core Modules:
+
+Module A: College Placement Management
+
+Features:
+
+1. Create Placement Session
+-> College name
+-> Date
+-> Job role
+-> Location
+-> Number of rounds
+
+2. Round Management
+-> Define each round
+-> Assign interviewer(s)
+-> Set round sequence
+
+3. Candidate Management
+Store:
+-> Name
+-> Phone number
+-> Resume (file upload)
+-> Link candidate to placement session
+
+4. Interview Flow
+-> Each candidate progresses through rounds
+Interviewer can:
+-> Add notes (good/bad/unsure/custom)
+-> Mark selected/rejected
+
+5. Candidate Progress Tracking
+Track:
+-> Current round
+-> Interviewer name
+-> Interview location
+-> Automatically update candidate status
+
+6. Placement History
+Maintain complete history:
+-> College
+-> Date
+-> Interviewers
+-> Candidates
+-> Results
+
+
+Module B: Walk-in / Off-Campus Interviews
+
+Features:
+
+1. Job Posting
+-> Admin creates job openings
+Includes:
+-> Role
+-> Description
+-> Rounds
+-> Location
+-> Interviewers
+
+2. Candidate Application
+-> Candidate registers
+-> Checks available jobs
+-> Applies for job
+-> Upload resume
+
+3. Interview Process
+Same as placement:
+-> Multi-round flow
+-> Feedback system
+-> Selection tracking
+
+
+Authentication & Authorization:
+JWT-based login system
+Role-based access:
+1. Admin
+2.Candidate
+3. Interviewer
+-> Secure routes using middleware
+
+
+Database Design (MySQL)
+
+Design normalized schema including:
+Tables:
+
+1. users: 
+id
+name
+email
+password
+role (admin/candidate/interviewer)
+
+2. placements
+id
+college_name
+date
+location
+
+3. rounds
+id
+placement_id
+round_number
+interviewer_id
+
+4. candidates
+id
+name
+phone
+resume_url
+
+5. applications
+id
+candidate_id
+placement_id
+current_round
+status
+
+6. interview_feedback
+id
+candidate_id
+round_id
+interviewer_id
+notes
+result (selected/rejected/hold)
+
+7. jobs (for walk-ins)
+id
+role
+description
+location
+
+Frontend Pages
+
+Public:
+-> Login/Register
+-> Job Listings
+
+Candidate Dashboard:
+-> Apply for jobs
+-> View application status
+-> Upload resume
+
+Admin Dashboard:
+-> Create placements
+-> Manage rounds
+-> Assign interviewers
+-> View reports
+
+Interviewer Dashboard:
+-> Assigned candidates
+-> Submit feedback
+-> Update round status
+
+
+Folder structure:
+
+/backend
+  /controllers
+  /routes
+  /models
+  /middlewares
+  /config
+  /services
+  app.js
+
+/frontend
+  /src
+    /components
+    /pages
+    /services
+    /hooks
+    /layouts
+
+
+Additional Requirements
+1. File upload system (for resumes)
+2. Proper error handling
+3. Input validation
+4. Clean UI with Tailwind
+5. Responsive design
+6. Loading states & notifications
+
+Advanced Enhancements:
+1. Search & filter candidates
+2. Real-time updates (WebSockets)
+
+Expected Output
+Generate:
+1. Full frontend code (React + Tailwind)
+2. Full backend API (Node.js + Express)
+3. MySQL schema + queries
+4. API integration between frontend & backend
+5. Authentication system
+6. Complete working application
+
+Special Instructions
+-> Write clean, modular, production-level code
+-> Avoid monolithic files
+-> Use reusable components
+-> Follow best practices
+-> Add comments for clarity
+-> Ensure scalability for future enhancements
